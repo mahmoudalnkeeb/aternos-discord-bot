@@ -1,0 +1,33 @@
+{
+    "name": "aternos-discord-bot",
+    "server-engine": "aternos",
+    "roles": [
+        {
+            "role": "aternos admin",
+            "functions": [
+                "stop",
+                "start",
+                "restart",
+                "status"
+            ]
+        },
+        {
+            "role": "start access",
+            "functions": [
+                "start"
+            ]
+        },
+        {
+            "role": "stop access",
+            "functions": [
+                "stop"
+            ]
+        },
+        {
+            "role": "restart access",
+            "functions": [
+                "restart"
+            ]
+        }
+    ]
+}
