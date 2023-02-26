@@ -1,5 +1,4 @@
-const fs = require('fs');
-const cookies = JSON.parse(fs.readFileSync('./cookies/aternos.json')).cookies;
+const cookies = mapCookies();
 const Puppeteer = require('puppeteer-extra').PuppeteerExtra;
 const pptr = require('puppeteer');
 const puppeteer = new Puppeteer(pptr);

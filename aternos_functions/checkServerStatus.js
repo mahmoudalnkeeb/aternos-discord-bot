@@ -1,11 +1,11 @@
-const fs = require('fs');
-const cookies = JSON.parse(fs.readFileSync('./cookies/aternos.json')).cookies;
+const cookies = mapCookies();
 const Puppeteer = require('puppeteer-extra').PuppeteerExtra;
 const pptr = require('puppeteer');
 const puppeteer = new Puppeteer(pptr);
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const userAgent = require('user-agents');
 const { statusSelector } = require('../configs/aternos_css_config');
+const mapCookies = require('../utils/cookiesMapping');
 
 // --- puppeteer plugins start --
 puppeteer.use(StealthPlugin());

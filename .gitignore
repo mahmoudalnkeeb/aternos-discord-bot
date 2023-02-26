@@ -1,4 +1,5 @@
 node_modules
 .cache/puppeteer/chrome
 .env
-cookies
+cookies/*
+!cookies/temp

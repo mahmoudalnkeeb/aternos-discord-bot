@@ -1,9 +1,9 @@
 {
-    "name": "aternos-discord-bot",
-    "server-engine": "aternos",
+    "server-id": "aternos server id",
+    "channel": "name of channel you want the bot to run listen for commands in",
     "roles": [
         {
-            "role": "aternos admin",
+            "role": "prefered role name",
             "functions": [
                 "stop",
                 "start",
@@ -12,19 +12,19 @@
             ]
         },
         {
-            "role": "start access",
+            "role": "prefered role name",
             "functions": [
                 "start"
             ]
         },
         {
-            "role": "stop access",
+            "role": "prefered role name",
             "functions": [
                 "stop"
             ]
         },
         {
-            "role": "restart access",
+            "role": "prefered role name",
             "functions": [
                 "restart"
             ]
