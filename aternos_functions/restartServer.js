@@ -23,7 +23,7 @@ async function restartServer() {
     if (status != 'Online')
       return `Server isn't Online running current status:"${status}"`;
     await page.click(restartSelector);
-    await page.waitForSelector('.online', {timeout:100000});
+    await page.waitForSelector('.online', { timeout: 0 });
     return 'server restarted successfully';
   } catch (error) {
     console.log(error);

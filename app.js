@@ -22,33 +22,58 @@ client.on(Events.InteractionCreate, async (interaction) => {
     });
   if (interaction.channel.id !== serverConfig.channel) return;
   if (!interaction.isChatInputCommand()) return;
-  console.log(interaction.channel.id);
+  console.log(interaction.guild.roles.cache.get('1023944563129340034'));
   try {
     switch (interaction.commandName) {
       case 'check-status':
         await interaction.deferReply();
-        let status = await checkStatus();
+        let status = await checkStatus().catch(async (res) => {
+          await interaction.editReply({
+            ephemeral: true,
+            content: 'sorry but the proccess failed',
+          });
+        });
         await interaction.editReply(`current status : ${status}`);
         break;
       case 'start-server':
         if (!checkAccess(interaction.member.roles.cache, 'start'))
           return await interaction.reply("you don't have access");
         await interaction.deferReply();
-        let start = await startServer();
+        let start = await startServer().catch(async () => {
+          await interaction.editReply({
+            ephemeral: true,
+            content: 'sorry but the proccess failed',
+          });
+        });
         await interaction.editReply(start);
         break;
       case 'stop-server':
         if (!checkAccess(interaction.member.roles.cache, 'stop'))
           return await interaction.reply("you don't have access");
         await interaction.deferReply();
-        let stop = await stopServer();
-        await interaction.editReply(stop);
+        let stop = await stopServer().catch(async () => {
+          await interaction.editReply({
+            ephemeral: true,
+            content: 'sorry but the proccess failed',
+          });
+        });
+        await interaction.editReply(stop).catch(async () => {
+          await interaction.editReply({
+            ephemeral: true,
+            content: 'sorry but the proccess failed',
+          });
+        });
         break;
       case 'restart-server':
         if (!checkAccess(interaction.member.roles.cache, 'restart'))
           return await interaction.reply("you don't have access");
         await interaction.deferReply();
-        let restart = await restartServer();
+        let restart = await restartServer().catch(async () => {
+          await interaction.editReply({
+            ephemeral: true,
+            content: 'sorry but the proccess failed',
+          });
+        });
         await interaction.editReply(restart);
         break;
       default:

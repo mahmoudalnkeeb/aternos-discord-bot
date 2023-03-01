@@ -23,7 +23,7 @@ async function startServer() {
     if (status != 'Offline')
       return `Server isn't offline current status:"${status}"`;
     await page.click(startSelector);
-    await page.waitForSelector('.online', { timeout: 100000 });
+    await page.waitForSelector('.online', { timeout: 0 });
     return 'server started successfully';
   } catch (error) {
     console.log(error);
