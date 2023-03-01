@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.7.1",
+    "discordjs-button-pagination": "^1.0.7",
     "dotenv": "^16.0.3",
     "puppeteer": "^19.2.2",
     "puppeteer-extra": "^3.3.4",

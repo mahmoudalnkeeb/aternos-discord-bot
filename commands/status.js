@@ -7,9 +7,10 @@ module.exports = {
     .setDescription(
       'check the server status (online || offline || running || starting)'
     ),
-  async execute(msg) {
-    await msg.deferReply();
+  async execute(interaction) {
+    console.log('this is working');
+    await interaction.deferReply();
     let status = await checkStatus();
-    await msg.editReplay(status);
+    await interaction.editReply(status);
   },
 };
