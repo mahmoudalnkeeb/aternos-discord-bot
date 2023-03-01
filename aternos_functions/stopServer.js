@@ -1,3 +1,4 @@
+const mapCookies = require('../utils/cookiesMapping');
 const cookies = mapCookies();
 const Puppeteer = require('puppeteer-extra').PuppeteerExtra;
 const pptr = require('puppeteer');
@@ -22,7 +23,7 @@ async function stopServer() {
     if (status != 'Online')
       return `Server isn't Online running current status:"${status}"`;
     await page.click(stopSelector);
-    await page.waitForSelector('.offline' , {timeout:100000});
+    await page.waitForSelector('.offline', { timeout: 100000 });
     return 'server stopped successfully';
   } catch (error) {
     console.log(error);

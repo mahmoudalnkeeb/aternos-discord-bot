@@ -1,3 +1,4 @@
+const mapCookies = require('../utils/cookiesMapping');
 const cookies = mapCookies();
 const Puppeteer = require('puppeteer-extra').PuppeteerExtra;
 const pptr = require('puppeteer');
@@ -5,7 +6,6 @@ const puppeteer = new Puppeteer(pptr);
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const userAgent = require('user-agents');
 const { statusSelector } = require('../configs/aternos_css_config');
-const mapCookies = require('../utils/cookiesMapping');
 
 // --- puppeteer plugins start --
 puppeteer.use(StealthPlugin());

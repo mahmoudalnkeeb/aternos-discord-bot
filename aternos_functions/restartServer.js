@@ -1,3 +1,4 @@
+const mapCookies = require('../utils/cookiesMapping');
 const cookies = mapCookies();
 const Puppeteer = require('puppeteer-extra').PuppeteerExtra;
 const pptr = require('puppeteer');
