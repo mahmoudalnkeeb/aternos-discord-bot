@@ -1,5 +1,5 @@
-const { rolesConfig } = require('../configs/config');
-const roles = rolesConfig.roles;
+const { serverConfig } = require('../configs/config');
+const roles = serverConfig.roles;
 
 const checkAccess = (userRoles, func) => {
   let rolesHasAccess = roles.filter((role) => role.functions.includes(func));

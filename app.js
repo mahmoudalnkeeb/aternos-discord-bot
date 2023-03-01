@@ -5,6 +5,7 @@ const checkStatus = require('./aternos_functions/checkServerStatus');
 const stopServer = require('./aternos_functions/stopServer');
 const restartServer = require('./aternos_functions/restartServer');
 const checkAccess = require('./utils/checkAccess');
+const { serverConfig } = require('./configs/config');
 const token = process.env.BOT_TOKEN;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.login(token);
@@ -14,7 +15,13 @@ client.once(Events.ClientReady, (c) => {
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
+  if (interaction.guild == null)
+    return await interaction.reply({
+      ephemeral: true,
+      content: 'sorry commands allowed only in servers',
+    });
   if (!interaction.isChatInputCommand()) return;
+  if (!interaction.channel.id == serverConfig.channel) return;
   try {
     switch (interaction.commandName) {
       case 'check-status':
@@ -47,7 +54,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
         break;
     }
   } catch (error) {
-    await interaction.reply('sorry but something went wrong');
+    await interaction.reply({
+      ephemeral: true,
+      content: 'sorry but the proccess failed',
+    });
     console.log(error);
   }
 });

@@ -1,6 +1,6 @@
 {
     "server-id": "aternos server id",
-    "channel": "name of channel you want the bot to run listen for commands in",
+    "channel": "id of channel you want the bot to run listen for commands in",
     "roles": [
         {
             "role": "prefered role name",
