@@ -20,8 +20,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
       ephemeral: true,
       content: 'sorry commands allowed only in servers',
     });
+  if (interaction.channel.id !== serverConfig.channel) return;
   if (!interaction.isChatInputCommand()) return;
-  if (!interaction.channel.id == serverConfig.channel) return;
+  console.log(interaction.channel.id);
   try {
     switch (interaction.commandName) {
       case 'check-status':
