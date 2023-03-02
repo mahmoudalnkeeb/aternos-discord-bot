@@ -5,7 +5,8 @@ module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
     if (!interaction.isChatInputCommand()) return;
-    if (interaction.channel.id !== serverConfig.channel) return;
+    if (interaction.channel.id !== serverConfig[interaction.guild.id].channel)
+      return;
     if (interaction.guild == null)
       return await interaction.reply({
         ephemeral: true,

@@ -1,5 +1,4 @@
 const mapCookies = require('../utils/cookiesMapping');
-const cookies = mapCookies();
 const Puppeteer = require('puppeteer-extra').PuppeteerExtra;
 const pptr = require('puppeteer');
 const puppeteer = new Puppeteer(pptr);
@@ -12,14 +11,15 @@ const checkStatus = require('./checkServerStatus');
 puppeteer.use(StealthPlugin());
 // --- plugins section end ---
 
-async function startServer() {
+async function startServer(guildId) {
   let browser = await puppeteer.launch({ headless: true });
+  const cookies = mapCookies(guildId);
   try {
     let page = await browser.newPage();
     await page.setUserAgent(userAgent.random().toString());
     await page.setCookie(...cookies);
     await page.goto('https://aternos.org/server/');
-    let status = await checkStatus();
+    let status = await checkStatus(guildId);
     if (status != 'Offline')
       return `Server isn't offline current status:"${status}"`;
     await page.click(startSelector);

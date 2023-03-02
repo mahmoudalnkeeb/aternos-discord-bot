@@ -1,5 +1,5 @@
 const mapCookies = require('../utils/cookiesMapping');
-const cookies = mapCookies();
+
 const Puppeteer = require('puppeteer-extra').PuppeteerExtra;
 const pptr = require('puppeteer');
 const puppeteer = new Puppeteer(pptr);
@@ -11,8 +11,9 @@ const { statusSelector } = require('../configs/aternos_css_config');
 puppeteer.use(StealthPlugin());
 // --- plugins section end ---
 
-async function checkStatus() {
+async function checkStatus(guildId) {
   let browser = await puppeteer.launch({ headless: true });
+  const cookies = mapCookies(guildId);
   try {
     let page = await browser.newPage();
     await page.setUserAgent(userAgent.random().toString());

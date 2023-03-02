@@ -1,7 +1,8 @@
-let serverId = require('../servers/testconfig.json')['server-id'];
+const config = require('../configs/config');
 let unMappedCookies = require('../cookies/aternos.json').cookies;
 
-function mapCookies() {
+function mapCookies(guildId) {
+  let serverId = config.serverConfig[`${guildId}`]['server-id'];
   return unMappedCookies.map((cookie) => {
     if (cookie.name == 'ATERNOS_SERVER') cookie.value = serverId;
     return cookie;

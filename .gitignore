@@ -4,3 +4,4 @@ node_modules
 cookies/*
 !cookies/temp
 testconfig.json
+zxConfig.json
