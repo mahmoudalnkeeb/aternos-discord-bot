@@ -19,4 +19,4 @@
 - [ ] documentaion
 
 
-###  have a problem / suggestion ? feel free to [open an issue](https://github.com/mahmoudalnkeeb/aternos-discord-bot/issues)
+###  have a problem / suggestion ? feel free to [open an issue](https://github.com/mahmoudalnkeeb/aternos-discord-bot/issues/new)
