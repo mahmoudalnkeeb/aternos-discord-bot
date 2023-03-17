@@ -1,6 +1,6 @@
-# nodejs aternos discord
+# aternos discord bot 
 
-### aternos unofficial api built using web scrapping with puppeteer connected with discord bot using discord.js
+### aternos unofficial bot built using NodeJS with puppeteer and discord.js
 
 ### available features
 
